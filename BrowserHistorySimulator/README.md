@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-The Browser History Navigation and Search project includes a native Qt Widgets frontend and a menu-driven C++ console version. Both simulate browser history using a Doubly Linked List and support visiting URLs, backward and forward navigation, searching, clearing, and saving or loading history.
+The Browser History Navigation and Search project is a menu-driven C++ application that simulates basic browser history operations. It uses a Doubly Linked List to store visited URLs and allows users to navigate backward and forward, search URLs, display history, clear history, and save or load history using file handling.
 
 ## 2. Objectives
 
@@ -18,13 +18,11 @@ The Browser History Navigation and Search project includes a native Qt Widgets f
 ## 3. Technologies Used
 
 - **Programming Language:** C++
-- **Graphical Interface:** Qt 5 Widgets
-- **Build System:** qmake
 - **Data Structure:** Doubly Linked List
 - **Concepts:** Classes, Objects, Pointers, Dynamic Memory Allocation
 - **File Handling:** `ifstream` and `ofstream`
 - **IDE:** Visual Studio Code
-- **Compiler:** GCC (g++) for the console version; a compiler kit matching Qt for the GUI.
+- **Compiler:** GCC (g++)
 
 ## 4. Project Structure
 
@@ -32,16 +30,12 @@ The Browser History Navigation and Search project includes a native Qt Widgets f
 BrowserHistorySimulator/
 │
 ├── main_.cpp
-├── qt_main.cpp
-├── BrowserHistorySimulator.pro
 ├── README.md
 ├── main_.exe
 └── history.txt
 ```
 
-- `main_.cpp` — Console version of the simulator.
-- `qt_main.cpp` — Qt Widgets graphical frontend and linked-list implementation.
-- `BrowserHistorySimulator.pro` — qmake project for building the Qt application.
+- `main_.cpp` — Contains the C++ source code.
 - `README.md` — Contains project documentation.
 - `main_.exe` — Executable generated after compilation.
 - `history.txt` — Stores saved browser history.
@@ -66,42 +60,33 @@ The `prev` pointer supports backward navigation, while the `next` pointer suppor
 
 The program maintains a maximum of 10 pages. When the limit is exceeded, the oldest page is removed.
 
-## 6. Build and Run the Qt Frontend
+## 6. How to Compile and Run
 
-Install Qt with the **Qt Widgets** module and a compiler kit that matches the Qt installation. Open `BrowserHistorySimulator.pro` in Qt Creator, select the matching kit, then build and run the project.
+### Step 1: Open the Project
 
-To build from a matching Windows developer command prompt:
+Open the `BrowserHistorySimulator` folder in Visual Studio Code.
 
-**MSVC kit:**
+### Step 2: Open the Terminal
 
-```powershell
-qmake BrowserHistorySimulator.pro
-nmake
-```
+Press `Ctrl + `` to open the integrated terminal.
 
-**MinGW kit:**
+### Step 3: Navigate to the Project Folder
 
 ```powershell
-qmake BrowserHistorySimulator.pro
-mingw32-make
+cd "C:\Users\ASUS\Desktop\DSA_PROJECT\DSA\BrowserHistorySimulator"
 ```
 
-The Qt application saves and loads `history.txt` beside its executable.
+If the terminal is already inside the project folder, skip this step.
 
-### Browser Frontend
-
-Open `index.html` in a browser to use the HTML/JavaScript frontend. Its **Save**
-button keeps the browser's local history and exports the current URLs, one per
-line, to `history.txt`. Browsers with the File System Access API let you choose
-where to save the file; other browsers download it to the default downloads
-folder.
-
-### Console Version
-
-The original console program remains available. Compile and run it with GCC:
+### Step 4: Compile the Program
 
 ```powershell
 g++ main_.cpp -o main_
+```
+
+### Step 5: Run the Program
+
+```powershell
 .\main_.exe
 ```
 
