@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browser History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+
+    <header class="toolbar">
+      <button id="btn-back" class="icon-btn" title="Go back" aria-label="Go back" disabled>&#8592;</button>
+      <button id="btn-forward" class="icon-btn" title="Go forward" aria-label="Go forward" disabled>&#8594;</button>
+
+      <form id="visit-form" class="address" autocomplete="off">
+        <input id="url-input" type="text" placeholder="Enter a URL, e.g. example.com" aria-label="URL to visit" spellcheck="false">
+        <button type="submit" class="primary">Visit</button>
+      </form>
+    </header>
+
+    <section class="current" aria-live="polite">
+      <p class="label">Current page</p>
+      <p id="current-url" class="current-url empty">No page is open</p>
+    </section>
+
+    <section class="time-info" aria-label="Time information">
+      <span>Active time: <strong id="active-time">0 seconds</strong></span>
+      <span>Last log time: <strong id="log-time">-</strong></span>
+    </section>
+
+    <section class="chain-section">
+      <div class="section-head">
+        <h2>History</h2>
+        <span id="count" class="count"></span>
+      </div>
+      <div id="chain" class="chain" role="list"></div>
+      <p class="hint">Visiting a new page while you are partway back removes the pages ahead of you. The list holds the last <span id="limit">10</span> pages.</p>
+    </section>
+
+    <section class="tools">
+      <form id="search-form" class="search" autocomplete="off">
+        <input id="search-input" type="text" placeholder="Search history for a URL" aria-label="URL to search for" spellcheck="false">
+        <button type="submit">Search</button>
+      </form>
+
+      <div class="file-actions">
+        <button id="btn-save">Save to file</button>
+        <button id="btn-load">Load from file</button>
+        <button id="btn-clear" class="danger">Clear history</button>
+      </div>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
